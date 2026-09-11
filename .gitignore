@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+virtualenv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+
+# Streamlit
+.streamlit/*
+!.streamlit/config.toml
+
+# Model files (if downloaded locally)
+*.bin
+*.pt
+*.pth
+*.h5
+*.ckpt
+models/
+checkpoints/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# Test files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data files (if you have sample resumes)
+sample_resumes/
+test_data/
+*.pdf
+*.docx
+!requirements.txt
+
+# spaCy models (will be downloaded by user)
+# en_core_web_sm/ (uncomment if you want to exclude)
+
