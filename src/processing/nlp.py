@@ -42,7 +42,7 @@ def _load_spacy_model():
         return _NLP
 
    try:
-    _NLP = spacy.load("en_core_web_sm")
+       _NLP = spacy.load("en_core_web_sm")
 
 except OSError as e:
     raise RuntimeError(
