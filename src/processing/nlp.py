@@ -35,19 +35,18 @@ def _load_spacy_model():
     Returns:
         spaCy language model.
     """
-
     global _NLP
 
     if _NLP is not None:
         return _NLP
-    try:
-       _NLP = spacy.load("en_core_web_sm")
 
-except OSError as e:
-    raise RuntimeError(
-        "spaCy English model is missing. "
-        "Please install en_core_web_sm through requirements.txt."
-    ) from e
+    try:
+        _NLP = spacy.load("en_core_web_sm")
+    except OSError as e:
+        raise RuntimeError(
+            "spaCy English model is missing. "
+            "Please install en_core_web_sm through requirements.txt."
+        ) from e
 
     return _NLP
 
@@ -65,7 +64,6 @@ def normalize_text(text: str) -> str:
     - Remove excessive whitespace
     - Preserve meaningful punctuation
     """
-
     if not text:
         return ""
 
@@ -100,7 +98,6 @@ def _normalize_for_matching(text: str) -> str:
         scikit-learn -> scikit-learn
         CI/CD -> ci/cd
     """
-
     text = text.lower()
 
     # Normalize different dash characters.
@@ -126,7 +123,6 @@ def _skill_pattern(skill: str) -> str:
         but should not match:
             "pythonic"
     """
-
     escaped = re.escape(skill.lower().strip())
 
     return rf"(?<!\w){escaped}(?!\w)"
@@ -157,7 +153,6 @@ def extract_skills(text: str) -> List[str]:
                 "pytorch"
             ]
     """
-
     if not text:
         return []
 
@@ -166,9 +161,7 @@ def extract_skills(text: str) -> List[str]:
     detected_skills: Set[str] = set()
 
     for canonical_skill, synonyms in SKILL_GROUPS.items():
-
         for synonym in synonyms:
-
             synonym_normalized = synonym.lower().strip()
 
             if not synonym_normalized:
@@ -211,7 +204,6 @@ def extract_keywords(
     Returns:
         List of canonical technical skills.
     """
-
     if not text:
         return []
 
@@ -248,7 +240,6 @@ def extract_skills_with_synonyms(text: str) -> List[str]:
     This function is useful when we want to inspect all
     recognized forms of a skill.
     """
-
     if not text:
         return []
 
@@ -262,7 +253,6 @@ def extract_skills_with_synonyms(text: str) -> List[str]:
     canonical_skills: Set[str] = set()
 
     for keyword in expanded:
-
         canonical = map_keyword_to_group(keyword)
 
         if canonical in SKILL_GROUPS:
@@ -289,7 +279,6 @@ def extract_entities(text: str) -> List[str]:
     Returns:
         Unique entity strings.
     """
-
     if not text:
         return []
 
@@ -315,7 +304,6 @@ def get_text_statistics(text: str) -> dict:
 
     Useful for debugging and future dashboard features.
     """
-
     if not text:
         return {
             "characters": 0,
