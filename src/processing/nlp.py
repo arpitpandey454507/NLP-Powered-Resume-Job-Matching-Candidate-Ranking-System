@@ -40,8 +40,7 @@ def _load_spacy_model():
 
     if _NLP is not None:
         return _NLP
-
-   try:
+    try:
        _NLP = spacy.load("en_core_web_sm")
 
 except OSError as e:
