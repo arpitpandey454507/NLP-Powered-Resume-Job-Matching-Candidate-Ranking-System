@@ -603,6 +603,90 @@ SKILL_GROUPS: Dict[str, List[str]] = {
         "mitre attck",
     ],
 
+
+    # --------------------------------------------------------
+    # AI / ML Extras (added)
+    # --------------------------------------------------------
+    "spacy": [
+        "spacy",
+    ],
+
+    "nltk": [
+        "nltk",
+    ],
+
+    "matplotlib": [
+        "matplotlib",
+    ],
+
+    "seaborn": [
+        "seaborn",
+    ],
+
+    "streamlit": [
+        "streamlit",
+    ],
+
+    "jupyter": [
+        "jupyter",
+        "jupyter notebook",
+        "jupyter notebooks",
+    ],
+
+    "sqlite": [
+        "sqlite",
+        "sqlite3",
+    ],
+
+    # SHAP / Grad-CAM are grouped with explainability on purpose:
+    # JDs usually say "SHAP or Grad-CAM" (either is fine), and the
+    # matcher cannot express "or", so one shared skill avoids
+    # marking a candidate "missing" a tool they did not need.
+    "explainable_ai": [
+        "explainable ai",
+        "explainable artificial intelligence",
+        "xai",
+        "model explainability",
+        "explainability",
+        "interpretability",
+        "shap",
+        "grad-cam",
+        "grad cam",
+        "gradcam",
+    ],
+
+    "generative_ai": [
+        "generative ai",
+        "generative artificial intelligence",
+        "gen ai",
+        "genai",
+    ],
+
+    "data_visualization": [
+        "data visualization",
+        "data visualisation",
+    ],
+
+    "data_preprocessing": [
+        "data preprocessing",
+        "data pre-processing",
+        "data cleaning",
+        "data wrangling",
+    ],
+
+    "data_structures_algorithms": [
+        "data structures and algorithms",
+        "data structures & algorithms",
+        "data structures",
+        "dsa",
+    ],
+
+    "oop": [
+        "oop",
+        "object oriented programming",
+        "object-oriented programming",
+    ],
+
 }
 
 
@@ -642,6 +726,12 @@ SKILL_CATEGORIES: Dict[str, List[str]] = {
         "pytorch",
         "keras",
         "opencv",
+        "spacy",
+        "nltk",
+        "matplotlib",
+        "seaborn",
+        "streamlit",
+        "jupyter",
     ],
 
     "web_development": [
@@ -681,6 +771,7 @@ SKILL_CATEGORIES: Dict[str, List[str]] = {
         "cassandra",
         "elasticsearch",
         "nosql",
+        "sqlite",
     ],
 
     "cloud": [
