@@ -37,6 +37,12 @@ EXPERIENCE_HEADERS = {
     "professional background",
     "internship",
     "internships",
+    "internship experience",
+    "internship experience and training",
+    "work experience and internships",
+    "experience and internships",
+    "work experience & internships",
+    "experience & internships",
 }
 
 CERTIFICATION_HEADERS = {
