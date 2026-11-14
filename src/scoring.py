@@ -53,6 +53,12 @@ EXPERIENCE_HEADERS = {
     "professional background",
     "internship",
     "internships",
+    "internship experience",
+    "internship experience and training",
+    "work experience and internships",
+    "experience and internships",
+    "work experience & internships",
+    "experience & internships",
 }
 
 NON_EXPERIENCE_HEADERS = {
@@ -114,6 +120,14 @@ def _normalize_skill(skill: str) -> str:
     )
 
 
+# Skills that should count as the same requirement when comparing a
+# JD with a resume. A JD asking for "Git and GitHub" is satisfied by a
+# resume that lists GitHub, and vice-versa.
+SKILL_ALIASES = {
+    "github": "git",
+}
+
+
 def _canonicalize_skills(
     skills: List[str],
 ) -> Set[str]:
@@ -138,6 +152,11 @@ def _canonicalize_skills(
 
         canonical = map_keyword_to_group(
             normalized
+        )
+
+        canonical = SKILL_ALIASES.get(
+            canonical,
+            canonical,
         )
 
         canonical_skills.add(canonical)
@@ -1228,6 +1247,22 @@ def _experience_match(
             None,
             None,
             "No explicit experience requirement in the job description.",
+        )
+
+    # --------------------------------------------------------
+    # No minimum experience (e.g. "0-1 year", "freshers welcome")
+    # --------------------------------------------------------
+    # Every candidate satisfies a minimum of 0 years, so this
+    # criterion cannot separate candidates. Treat it as N/A so it is
+    # excluded from the weighted score instead of penalising freshers.
+
+    if required_years <= 0:
+
+        return (
+            None,
+            None,
+            "Job description has no minimum experience requirement "
+            "(freshers welcome); experience is not scored.",
         )
 
     # --------------------------------------------------------
